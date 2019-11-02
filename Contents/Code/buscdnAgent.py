@@ -4,7 +4,7 @@ from lxml import html
 
 
 
-SEARCH_URL = 'https://www.buscdn.life/en/search/%s'
+SEARCH_URL = 'https://www.buscdn.life/ja/search/%s'
 curID = "buscdn"
 
 def getElementFromUrl(url):
@@ -48,11 +48,11 @@ def update(metadata, media, lang):
         Log('Find Moive: %s' % elementToString(movie))
         #post
         image = movie.xpath('.//a[contains(@class,"bigImage")]')[0]
-        thumbUrl = image.get('href')
+        thumbUrl = 'https://images.weserv.nl/?url='+image.get('href')+'&w=375&h=536&fit=cover&a=right'
         thumb = request(thumbUrl)
-        posterUrl = image.get('href')
+        posterUrl = 'https://images.weserv.nl/?url='+image.get('href')+'&w=375&h=536&fit=cover&a=right'
         metadata.posters[posterUrl] = Proxy.Preview(thumb)
-
+        
         #name
         if movie.xpath('.//h3'):
             metadata.title = movie.xpath('.//h3')[0].text_content().strip()
