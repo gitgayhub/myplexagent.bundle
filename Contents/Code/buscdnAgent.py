@@ -5,7 +5,7 @@ from lxml import html
 
 
 SEARCH_URL = 'https://www.javbus.com/ja/search/%s'
-curID = "javbus"
+curID = "buscdn"
 
 def getElementFromUrl(url):
     return html.fromstring(request(url))
