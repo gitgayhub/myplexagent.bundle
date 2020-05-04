@@ -5,7 +5,7 @@ from lxml import html
 
 
 SEARCH_URL = 'https://www.javbus.com/ja/search/%s'
-curID = "buscdn"
+curID = "javbus"
 
 def getElementFromUrl(url):
     return html.fromstring(request(url))
@@ -13,7 +13,7 @@ def getElementFromUrl(url):
 def request(url):
     user_agent = 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.0.7) Gecko/2009021910 Firefox/3.0.7'
     headers={'User-Agent':user_agent,} 
-    #url="https://www.buscdn.life"
+    #url="https://www.javbus.com"
     Log('Search Query: %s' % url)
     request = urllib2.Request(url,headers=headers)
     ctx = ssl.create_default_context()
